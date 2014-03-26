@@ -1,0 +1,22 @@
+<?php
+
+class PrivilegeController extends BaseController
+{
+
+    public function indexAction()
+    {
+
+    }
+
+    public function menuAction()
+    {
+    	$privilege_menu = new Privilege_Menu();
+
+    	$menu_list = $privilege_menu->getMenuList();
+    	print_r($menu_list);exit;
+
+    	$this->view->setVar('menu_list', $menu_list);
+    }
+
+}
+

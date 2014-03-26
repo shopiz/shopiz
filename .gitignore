@@ -1,0 +1,7 @@
+*.log
+
+
+/src/library/Phalcon
+/src/data/cache/app_helper/
+/src/data/compiled/app_helper/
+/src/data/logs/app_helper/
