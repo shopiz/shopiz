@@ -42,9 +42,89 @@
 
 	<!-- BEGIN PAGE LEVEL STYLES -->
 
+	<link rel="stylesheet" type="text/css" href="/ui/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/chosen.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/select2_metro.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/jquery.tagsinput.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/clockface.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/bootstrap-wysihtml5.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/datepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/timepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/colorpicker.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/bootstrap-toggle-buttons.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/multi-select-metro.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/bootstrap-modal.css" />
+
 	{{ assets.outputCss('head') }}
 
 	<!-- END PAGE LEVEL STYLES -->
+
+
+
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+    <!-- BEGIN CORE PLUGINS -->
+
+    <script src="/ui/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+    <script src="/ui/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+    <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+    <script src="/ui/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+
+    <script src="/ui/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--[if lt IE 9]>
+
+    <script src="/ui/js/excanvas.min.js"></script>
+
+    <script src="/ui/js/respond.min.js"></script>
+
+    <![endif]-->
+
+    <script src="/ui/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+    <script src="/ui/js/jquery.blockui.min.js" type="text/javascript"></script>
+
+    <script src="/ui/js/jquery.cookie.min.js" type="text/javascript"></script>
+
+    <script src="/ui/js/jquery.uniform.min.js" type="text/javascript" ></script>
+
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+    <script type="text/javascript" src="/ui/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/ui/js/jquery.backstretch.min.js"></script>
+	<script type="text/javascript" src="/ui/js/chosen.jquery.min.js"></script>
+	<script type="text/javascript" src="/ui/js/select2.min.js"></script>
+	<script type="text/javascript" src="/ui/js/wysihtml5-0.3.0.js"></script> 
+	<script type="text/javascript" src="/ui/js/bootstrap-wysihtml5.js"></script>
+	<script type="text/javascript" src="/ui/js/jquery.tagsinput.min.js"></script>
+	<script type="text/javascript" src="/ui/js/jquery.toggle.buttons.js"></script>
+	<script type="text/javascript" src="/ui/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/ui/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="/ui/js/clockface.js"></script>
+	<script type="text/javascript" src="/ui/js/date.js"></script>
+	<script type="text/javascript" src="/ui/js/daterangepicker.js"></script>
+	<script type="text/javascript" src="/ui/js/bootstrap-colorpicker.js"></script>
+	<script type="text/javascript" src="/ui/js/bootstrap-timepicker.js"></script>
+	<script type="text/javascript" src="/ui/js/jquery.inputmask.bundle.min.js"></script>
+	<script type="text/javascript" src="/ui/js/jquery.input-ip-address-control-1.0.min.js"></script>
+	<script type="text/javascript" src="/ui/js/jquery.multi-select.js"></script>
+	<script src="/ui/js/bootstrap-modal.js" type="text/javascript" ></script>
+	<script src="/ui/js/bootstrap-modalmanager.js" type="text/javascript" ></script>
+
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+    <script src="/ui/js/app/base.js" type="text/javascript"></script>
+
+    {{ assets.outputJs('footer') }}
 
 	<link rel="shortcut icon" href="/ui/image/favicon.ico" />
 
@@ -271,52 +351,6 @@
 	</div>
 
 	<!-- END FOOTER -->
-
-	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-
-	<!-- BEGIN CORE PLUGINS -->
-
-	<script src="/ui/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-
-	<script src="/ui/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-
-	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-
-	<script src="/ui/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-
-	<script src="/ui/js/bootstrap.min.js" type="text/javascript"></script>
-
-	<!--[if lt IE 9]>
-
-	<script src="/ui/js/excanvas.min.js"></script>
-
-	<script src="/ui/js/respond.min.js"></script>
-
-	<![endif]-->
-
-	<script src="/ui/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-
-	<script src="/ui/js/jquery.blockui.min.js" type="text/javascript"></script>
-
-	<script src="/ui/js/jquery.cookie.min.js" type="text/javascript"></script>
-
-	<script src="/ui/js/jquery.uniform.min.js" type="text/javascript" ></script>
-
-	<!-- END CORE PLUGINS -->
-
-	<!-- BEGIN PAGE LEVEL PLUGINS -->
-
-	<script src="/ui/js/jquery.validate.min.js" type="text/javascript"></script>
-
-	<script src="/ui/js/jquery.backstretch.min.js" type="text/javascript"></script>
-
-	<!-- END PAGE LEVEL PLUGINS -->
-
-	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-	<script src="/ui/js/app/base.js" type="text/javascript"></script>
-
-    {{ assets.outputJs('footer') }}
 
 </body>
 

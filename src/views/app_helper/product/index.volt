@@ -71,17 +71,17 @@
 
 						<tr>
 
-							<th>Username</th>
+							<th>商品编号</th>
 
-							<th>Full Name</th>
+							<th>商品货号</th>
 
-							<th>Points</th>
+							<th>商品名称</th>
 
-							<th>Notes</th>
+							<th>商品价格</th>
 
-							<th>Edit</th>
+							<th>市场价</th>
 
-							<th>Delete</th>
+							<th>操作</th>
 
 						</tr>
 
@@ -97,11 +97,14 @@
 
 							<td>1234</td>
 
-							<td class="center">power user</td>
+							<td class="center">￥10.00</td>
 
-							<td><a class="edit" href="javascript:;">Edit</a></td>
+							<td class="center">￥10.00</td>
 
-							<td><a class="delete" href="javascript:;">Delete</a></td>
+							<td>
+								<a class="edit" href="javascript:;">Edit</a>
+								<a class="delete" href="javascript:;">Delete</a>
+							</td>
 
 						</tr>
 

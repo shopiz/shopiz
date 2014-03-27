@@ -1,8 +1,6 @@
 <?php
-	$this->assets->collection("head")
-		->addCss("ui/css/??jquery.tagsinput.css,colorpicker.css,bootstrap-toggle-buttons.css,daterangepicker.css,datetimepicker.css,multi-select-metro.css");
-	$this->assets->collection("footer")
-		->addJs("ui/js/??jquery.tagsinput.min.js,jquery.toggle.buttons.js,bootstrap-datetimepicker.js,daterangepicker.js,bootstrap-colorpicker.js,jquery.multi-select.js,form-components.js,app/product.js");
+	$this->assets->collection("head");
+	$this->assets->collection("footer");
 ?>
 
 <div class="row-fluid">
@@ -61,7 +59,7 @@
 
 								</div>
 
-								<div class="control-group">
+								<!-- <div class="control-group">
 
 									<label class="control-label">淘宝编号</label>
 
@@ -73,7 +71,7 @@
 
 									</div>
 
-								</div>
+								</div> -->
 
 								<div class="control-group">
 
@@ -83,7 +81,7 @@
 
 										<input type="text" name="product_sn" placeholder="" class="m-wrap medium" />
 
-										<span class="help-inline">Some hint here</span>
+										<span class="help-inline">唯一编号，不能修改</span>
 
 									</div>
 
@@ -91,11 +89,9 @@
 
 								<div class="control-group">
 
-									<label class="control-label">Small Dropdown</label>
-
+									<label class="control-label">商品分类</label>
 									<div class="controls">
-
-										<select data-placeholder="Your Favorite Football Teams" class="chosen span6" multiple="multiple" tabindex="6">
+										<select data-placeholder="请选择商品分类" class="chosen span6" multiple="multiple">
 
 											<option value=""></option>
 
@@ -103,140 +99,14 @@
 
 												<option>Dallas Cowboys</option>
 
-												<option>New York Giants</option>
+												<option>&nbsp;&nbsp;New York Giants</option>
 
 												<option>Philadelphia Eagles</option>
 
 												<option>Washington Redskins</option>
 
 											</optgroup>
-
-											<optgroup label="NFC NORTH">
-
-												<option selected>Chicago Bears</option>
-
-												<option>Detroit Lions</option>
-
-												<option>Green Bay Packers</option>
-
-												<option>Minnesota Vikings</option>
-
-											</optgroup>
-
 										</select>
-
-									</div>
-
-								</div>
-
-								<div class="control-group">
-
-									<label class="control-label">Medium Dropdown</label>
-
-									<div class="controls">
-
-										<select class="medium m-wrap" tabindex="1">
-
-											<option value="Category 1">Category 1</option>
-
-											<option value="Category 2">Category 2</option>
-
-											<option value="Category 3">Category 5</option>
-
-											<option value="Category 4">Category 4</option>
-
-										</select>
-
-									</div>
-
-								</div>
-
-								<div class="control-group">
-
-									<label class="control-label">Large Dropdown</label>
-
-									<div class="controls">
-
-										<select class="large m-wrap" tabindex="1">
-
-											<option value="Category 1">Category 1</option>
-
-											<option value="Category 2">Category 2</option>
-
-											<option value="Category 3">Category 5</option>
-
-											<option value="Category 4">Category 4</option>
-
-										</select>
-
-									</div>
-
-								</div>
-
-								<div class="control-group">
-
-									<label class="control-label">Radio Buttons</label>
-
-									<div class="controls">
-
-										<label class="radio">
-
-										<input type="radio" name="optionsRadios1" value="option1" />
-
-										Option 1
-
-										</label>
-
-										<label class="radio">
-
-										<input type="radio" name="optionsRadios1" value="option2" checked />
-
-										Option 2
-
-										</label>
-
-										<label class="radio">
-
-										<input type="radio" name="optionsRadios1" value="option2" />
-
-										Option 3
-
-										</label>
-
-									</div>
-
-								</div>
-
-								<div class="control-group">
-
-									<label class="control-label">Radio Buttons</label>
-
-									<div class="controls">
-
-										<label class="radio line">
-
-										<input type="radio" name="optionsRadios2" value="option1" />
-
-										Option 1
-
-										</label>
-
-										<label class="radio line">
-
-										<input type="radio" name="optionsRadios2" value="option2" checked />
-
-										Option 2
-
-										</label>
-
-										<label class="radio line">
-
-										<input type="radio" name="optionsRadios2" value="option2" />
-
-										Option 3
-
-										</label>
-
 									</div>
 
 								</div>
@@ -254,28 +124,6 @@
 										</label>
 
 										<label class="checkbox">
-
-										<input type="checkbox" value="" /> Checkbox 2
-
-										</label>
-
-									</div>
-
-								</div>
-
-								<div class="control-group">
-
-									<label class="control-label">Checkbox</label>
-
-									<div class="controls">
-
-										<label class="checkbox line">
-
-										<input type="checkbox" value="" /> Checkbox 1
-
-										</label>
-
-										<label class="checkbox line">
 
 										<input type="checkbox" value="" /> Checkbox 2
 
@@ -293,7 +141,7 @@
 
 										<div class="text-toggle-button">
 
-											<input type="checkbox" class="toggle" />
+											<input name="is_on_sale" type="checkbox" class="toggle" value="1" />
 
 										</div>
 
@@ -301,35 +149,11 @@
 
 								</div>
 
-								<div class="control-group">
-
-									<label class="control-label">Textarea</label>
-
-									<div class="controls">
-
-										<textarea class="medium m-wrap" rows="3"></textarea>
-
-									</div>
-
-								</div>
-
-								<div class="control-group">
-
-									<label class="control-label">Large Textarea</label>
-
-									<div class="controls">
-
-										<textarea class="large m-wrap" rows="3"></textarea>
-
-									</div>
-
-								</div>
-
 								<div class="form-actions">
 
-									<button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
+									<button type="submit" class="btn blue"><i class="icon-ok"></i>保存</button>
 
-									<button type="button" class="btn">Cancel</button>
+									<button type="button" class="btn">取消</button>
 
 								</div>
 
@@ -564,3 +388,18 @@
 	</div>
 
 </div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+	App.init();
+
+	$("form input[name=is_on_sale]").parent().toggleButtons({
+        width: 200,
+        label: {
+            enabled: "上架",
+            disabled: "下架"
+        }
+    });
+});
+</script>
