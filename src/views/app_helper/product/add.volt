@@ -5,23 +5,14 @@
 ?>
 
 <div class="row-fluid">
-
 	<div class="span12">
-
 		<!-- BEGIN SAMPLE FORM PORTLET-->
-
 		<div class="portlet box blue tabbable">
-
 			<div class="portlet-title">
-
 				<div class="caption">
-
 					<i class="icon-reorder"></i>
-
 					<span class="hidden-480">商品信息</span>
-
 				</div>
-
 			</div>
 
 			<div class="portlet-body form">
