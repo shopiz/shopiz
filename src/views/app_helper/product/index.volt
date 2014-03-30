@@ -3,7 +3,7 @@
 		->addCss("ui/css/??select2_metro.css,DT_bootstrap.css");
 	$this->assets->collection('footer')
 		->addJs("ui/js/??select2.min.js,jquery.dataTables.js")
-		->addJs("ui/js/??DT_bootstrap.js,table-editable.js,product.js");
+		->addJs("ui/js/??DT_bootstrap.js,table-editable.js,app/product.js");
 ?>
 
 <div class="row-fluid">

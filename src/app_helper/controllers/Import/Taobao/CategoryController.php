@@ -60,11 +60,14 @@ class ShopController extends \BaseController
         exit;
     }
 
-    public function categoryAction()
+    public function updateAction()
     {
         $category = new \Taobao\Shop\Category();
         $categoryList = $category->getCategoryList($userNick);
         print_r($categoryList);exit;
+
+
+        // $category->getShopCategoryList();
     }
 
 }
