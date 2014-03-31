@@ -73,7 +73,7 @@ class TaobaoController extends \BaseController
 
     public function categoryAction()
     {
-        $category = new \Taobao\Category();
+        $category = new \Api\Taobao\Category();
 
         $parent_cids = array(0);
         do {

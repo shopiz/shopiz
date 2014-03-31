@@ -173,6 +173,20 @@ INSERT INTO `setting` VALUES ('7', '静态资源地址', 'other', 'STATIC_RESOUR
 INSERT INTO `setting` VALUES ('8', '动态资源地址', 'other', 'DYNAMIC_RESOURCE_URL', 'text', '动态资源地址', '', '', '1', '1', '4');
 
 -- ----------------------------
+-- Table structure for `taobao_category`
+-- ----------------------------
+CREATE TABLE `taobao_category` (
+  `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_cid` int(10) unsigned NOT NULL,
+  `name` varchar(60) NOT NULL DEFAULT '',
+  `is_parent` enum('true','false') NOT NULL DEFAULT 'true',
+  `status` enum('normal','deleted') NOT NULL DEFAULT 'normal',
+  `sort_order` smallint(5) unsigned NOT NULL,
+  `lasttime` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for `user_logs`
 -- ----------------------------
 DROP TABLE IF EXISTS `user_logs`;

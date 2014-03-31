@@ -56,10 +56,9 @@
                         <thead>
                             <tr>
                                 <th class="span1"><!-- 编号 --></th>
-                                <th class="span1">排序</th>
                                 <th class="span3">分类名称</th>
-                                <th class="span3">分类标识</th>
-                                <th class="span2">是否可用</th>
+                                <th class="span1">排序</th>
+                                <!-- <th class="span2">是否可用</th> -->
                                 <!-- <th class="span2">修改时间</th> -->
                                 <th class="span2">操作</th>
                             </tr>
@@ -69,21 +68,17 @@
                             {% for key, item in category_list %}
                             <tr class="tuangrou_category_{$item.category_id}{if $item.enabled eq 0} error{/if}">
                                 <td><!-- {$item.category_id} --></td>
-                                <td><input type="text" name="category[{$item.parent_id}][{$item.category_id}][sort_order]" value="{$item.sort_order}" class="span12" /></td>
                                 <td>
-                                    <div class="category-level-lv{$item.level}">
-                                        <input type="text" name="category[{$item.parent_id}][{$item.category_id}][category_name]" value="{$item.category_name}" />
-                                        <!-- <a href="javascript:;" rel="{$item.category_id}" level="{$item.level}" class="category-add-children">添加子分类</a> -->
+                                    <div class="category-level-lv{{ item['level'] }}">
+                                        {{ item['name'] }}
                                     </div>
                                 </td>
-                                <td><input type="text" name="category[{$item.parent_id}][{$item.category_id}][identify]" value="{$item.identify}" disabled="disabled" /></td>
+                                <td>{{ item['sort_order'] }}
+                                <!-- <td>
+                                    &nbsp;
+                                </td> -->
                                 <td>
-                                    <div class="switch make-switch" data-on="primary" data-off="info">
-                                        <input type="checkbox" name="category[{$item.parent_id}][{$item.category_id}][enabled]" value="1"{if $item.enabled eq 1} checked{/if} rel="{$item.category_id}" class="switch-enabled" />
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a>
+                                    <!-- <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a> -->
                                 </td>
                             </tr>
                             {% endfor %}

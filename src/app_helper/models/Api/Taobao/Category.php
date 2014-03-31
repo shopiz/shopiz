@@ -1,5 +1,5 @@
 <?php
-namespace Taobao;
+namespace Api\Taobao;
 
 class Category extends \Api\Taobao\TopClient
 {
