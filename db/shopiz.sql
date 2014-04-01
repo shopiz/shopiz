@@ -175,6 +175,7 @@ INSERT INTO `setting` VALUES ('8', '动态资源地址', 'other', 'DYNAMIC_RESOU
 -- ----------------------------
 -- Table structure for `taobao_category`
 -- ----------------------------
+DROP TABLE IF EXISTS `taobao_category`;
 CREATE TABLE `taobao_category` (
   `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_cid` int(10) unsigned NOT NULL,
@@ -185,6 +186,34 @@ CREATE TABLE `taobao_category` (
   `lasttime` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for `taobao_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `taobao_category_prop`;
+CREATE TABLE `taobao_category_prop` (
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `cid` int(10) unsigned NOT NULL DEFAULT '0',
+  `parent_pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `parent_vid` int(10) unsigned NOT NULL,
+  `name` varchar(60) NOT NULL DEFAULT '',
+  `must` enum('true','false') NOT NULL DEFAULT 'false',
+  `multi` enum('true','false') NOT NULL DEFAULT 'false',
+  `features` text NOT NULL,
+  `prop_values` text NOT NULL,
+  `child_template` varchar(30) NOT NULL DEFAULT '',
+  `is_input_prop` enum('true','false') NOT NULL DEFAULT 'false',
+  `is_key_prop` enum('true','false') NOT NULL DEFAULT 'false',
+  `is_sale_prop` enum('true','false') NOT NULL DEFAULT 'false',
+  `is_color_prop` enum('true','false') NOT NULL DEFAULT 'false',
+  `is_enum_prop` enum('true','false') NOT NULL DEFAULT 'false',
+  `is_item_prop` enum('true','false') NOT NULL DEFAULT 'false',
+  `is_allow_alias` enum('true','false') NOT NULL DEFAULT 'false',
+  `status` enum('normal','deleted') NOT NULL DEFAULT 'normal',
+  `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `lasttime` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `user_logs`
