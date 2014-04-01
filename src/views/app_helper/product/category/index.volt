@@ -38,6 +38,9 @@
                                 <!-- <td>&nbsp;</td> -->
                                 <td>
                                     <!-- <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a> -->
+                                    {% if item['is_parent'] == 'false' %}
+                                    <a href="/taobao/category/prop">查看属性</a>
+                                    {% endif %}
                                 </td>
                             </tr>
                             {% endfor %}
