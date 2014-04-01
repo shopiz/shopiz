@@ -62,7 +62,7 @@ class Category extends \Api\Taobao\TopClient
     public function getItemPropList($sessionKey, $params = array())
     {
         $req = new \Api\Taobao\Request\ItempropsGetRequest();
-        $req->setFields("pid,name,must,multi,prop_values");
+        $req->setFields("is_input_prop,cid,features,pid,parent_pid,parent_vid,name,is_key_prop,is_sale_prop,is_color_prop,is_enum_prop,is_item_prop,must,multi,prop_values,status,sort_order,child_template,is_allow_alias");
         $req->setCid($params['cid']);
         unset($params['cid']);
         foreach ($params as $k => $v) {
@@ -71,13 +71,22 @@ class Category extends \Api\Taobao\TopClient
             $req->$op($v);
         }
         $resp = $this->execute($req, $sessionKey);
+        // print_r($resp);
 
         if (isset($resp['item_props']['item_prop'])) {
-            $res = array(
-                'status' => 1,
-                'msg'    => '',
-                'result' => $resp['item_props']['item_prop'],
-            );
+            if (isset($resp['item_props']['item_prop'][0])) {
+                $res = array(
+                    'status' => 1,
+                    'msg'    => '',
+                    'result' => $resp['item_props']['item_prop'],
+                );
+            } else {
+                $res = array(
+                    'status' => 1,
+                    'msg'    => '',
+                    'result' => array($resp['item_props']['item_prop']),
+                );
+            }
         } else {
             $res = array(
                 'status' => 0,

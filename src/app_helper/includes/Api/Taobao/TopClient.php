@@ -17,6 +17,8 @@ class TopClient extends \Phalcon\Mvc\User\Component
 
 	public $readTimeout;
 
+	public static $callTimes = 0;
+
 	/** 是否打开入参check**/
 	public $checkRequest = true;
 
@@ -138,6 +140,7 @@ class TopClient extends \Phalcon\Mvc\User\Component
 
 	public function execute($request, $session = null)
 	{
+		self::$callTimes ++;
 		if($this->checkRequest) {
 			try {
 				$request->check();

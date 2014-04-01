@@ -10,20 +10,20 @@
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
-	<link href="media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-	<link href="media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-	<link href="media/css/style-metro.css" rel="stylesheet" type="text/css"/>
-	<link href="media/css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-	<link href="media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-	<link href="media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/style-metro.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="/ui/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+	<link href="/ui/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 	<!-- END GLOBAL MANDATORY STYLES -->
 	<!-- BEGIN PAGE LEVEL STYLES -->
-	<link rel="stylesheet" type="text/css" href="media/css/select2_metro.css" />
-	<link rel="stylesheet" href="media/css/DT_bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/ui/css/select2_metro.css" />
+	<link rel="stylesheet" href="/ui/css/DT_bootstrap.css" />
 	<!-- END PAGE LEVEL STYLES -->
-	<link rel="shortcut icon" href="media/image/favicon.ico" />
+	<link rel="shortcut icon" href="/ui/image/favicon.ico" />
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -35,12 +35,12 @@
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
 				<a class="brand" href="index.html">
-				<img src="media/image/logo.png" alt="logo" />
+				<img src="/ui/image/logo.png" alt="logo" />
 				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 				<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-				<img src="media/image/menu-toggler.png" alt="" />
+				<img src="/ui/image/menu-toggler.png" alt="" />
 				</a>          
 				<!-- END RESPONSIVE MENU TOGGLER -->            
 				<!-- BEGIN TOP NAVIGATION MENU -->              
@@ -115,7 +115,7 @@
 							</li>
 							<li>
 								<a href="inbox.html?a=view">
-								<span class="photo"><img src="media/image/avatar2.jpg" alt="" /></span>
+								<span class="photo"><img src="/ui/image/avatar2.jpg" alt="" /></span>
 								<span class="subject">
 								<span class="from">Lisa Wong</span>
 								<span class="time">Just Now</span>
@@ -128,7 +128,7 @@
 							</li>
 							<li>
 								<a href="inbox.html?a=view">
-								<span class="photo"><img src="media/image/avatar3.jpg" alt="" /></span>
+								<span class="photo"><img src="/ui/image/avatar3.jpg" alt="" /></span>
 								<span class="subject">
 								<span class="from">Richard Doe</span>
 								<span class="time">16 mins</span>
@@ -141,7 +141,7 @@
 							</li>
 							<li>
 								<a href="inbox.html?a=view">
-								<span class="photo"><img src="media/image/avatar1.jpg" alt="" /></span>
+								<span class="photo"><img src="/ui/image/avatar1.jpg" alt="" /></span>
 								<span class="subject">
 								<span class="from">Bob Nilson</span>
 								<span class="time">2 hrs</span>
@@ -243,7 +243,7 @@
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img alt="" src="media/image/avatar1_small.jpg" />
+						<img alt="" src="/ui/image/avatar1_small.jpg" />
 						<span class="username">Bob Nilson</span>
 						<i class="icon-angle-down"></i>
 						</a>
@@ -1511,28 +1511,28 @@
 	<!-- END FOOTER -->
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 	<!-- BEGIN CORE PLUGINS -->
-	<script src="media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-	<script src="media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+	<script src="/ui/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="/ui/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 	<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-	<script src="media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
-	<script src="media/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/ui/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+	<script src="/ui/js/bootstrap.min.js" type="text/javascript"></script>
 	<!--[if lt IE 9]>
-	<script src="media/js/excanvas.min.js"></script>
-	<script src="media/js/respond.min.js"></script>  
+	<script src="/ui/js/excanvas.min.js"></script>
+	<script src="/ui/js/respond.min.js"></script>  
 	<![endif]-->                    
-	<script src="media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-	<script src="media/js/jquery.blockui.min.js" type="text/javascript"></script>  
-	<script src="media/js/jquery.cookie.min.js" type="text/javascript"></script>
-	<script src="media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+	<script src="/ui/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+	<script src="/ui/js/jquery.blockui.min.js" type="text/javascript"></script>  
+	<script src="/ui/js/jquery.cookie.min.js" type="text/javascript"></script>
+	<script src="/ui/js/jquery.uniform.min.js" type="text/javascript" ></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script type="text/javascript" src="media/js/select2.min.js"></script>
-	<script type="text/javascript" src="media/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="media/js/DT_bootstrap.js"></script>
+	<script type="text/javascript" src="/ui/js/select2.min.js"></script>
+	<script type="text/javascript" src="/ui/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="/ui/js/DT_bootstrap.js"></script>
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
-	<script src="media/js/app.js"></script>
-	<script src="media/js/table-advanced.js"></script>     
+	<script src="/ui/js/app.js"></script>
+	<script src="/ui/js/table-advanced.js"></script>     
 	<script>
 		jQuery(document).ready(function() {       
 		   App.init();

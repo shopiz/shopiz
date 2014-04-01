@@ -6,46 +6,7 @@
     select {margin:5px 0px;}
     .table th, .table td {vertical-align: middle;}
     .table td input { margin:0px; }
-
-    .category-level-lv2 {
-        padding-left: 45px;
-        background: url(../images/bg_repno.png) no-repeat -270px -545px;
-    }
-    .category-level-lv2-last {
-        padding-left: 45px;
-        background: url(../images/bg_repno.png) no-repeat -270px -595px;
-    }
-    .category-level-lv3 {
-        padding-left: 100px;
-        background: url(../images/bg_repno.png) no-repeat -215px -550px;
-    }
-    .category-level-lv3-last {
-        padding-left: 100px;
-        background: url(../images/bg_repno.png) no-repeat -215px -595px;
-    }
-    .category-level-lv4 {
-        padding-left: 155px;
-        background: url(../images/bg_repno.png) no-repeat -160px -550px;
-    }
-    .category-level-lv5 {
-        padding-left: 210px;
-        background: url(../images/bg_repno.png) no-repeat -105px -550px;
-    }
-    .category-add-children {
-        margin-right: 5px;
-        padding-left: 17px;
-        line-height: 25px;
-        background: url(../images/bg_repno.png) no-repeat 0 -599px;
-        color: #FFF;
-        zoom: 1;
-    }
-    .category-add-top {
-        padding-left: 17px;
-        line-height: 25px;
-        background: url(../images/bg_repno.png) no-repeat 0 1px;
-        color: #F60;
-    }
-    </style>
+</style>
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -70,13 +31,11 @@
                                 <td><!-- {$item.category_id} --></td>
                                 <td>
                                     <div class="category-level-lv{{ item['level'] }}">
-                                        {{ item['name'] }}
+                                        {{ item['name'] }}({{ item['cid'] }})
                                     </div>
                                 </td>
                                 <td>{{ item['sort_order'] }}
-                                <!-- <td>
-                                    &nbsp;
-                                </td> -->
+                                <!-- <td>&nbsp;</td> -->
                                 <td>
                                     <!-- <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a> -->
                                 </td>

@@ -12,7 +12,7 @@
 
 			<a class="brand" href="index.html">
 
-			<img src="/ui/image/logo.png" alt="logo"/>
+			<img src="/ui/images/logo.png" alt="logo"/>
 
 			</a>
 
@@ -22,7 +22,7 @@
 
 			<a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
 
-			<img src="/ui/image/menu-toggler.png" alt="" />
+			<img src="/ui/images/menu-toggler.png" alt="" />
 
 			</a>
 
@@ -172,7 +172,7 @@
 
 							<a href="inbox.html?a=view">
 
-							<span class="photo"><img src="/ui/image/avatar2.jpg" alt="" /></span>
+							<span class="photo"><img src="/ui/images/avatar2.jpg" alt="" /></span>
 
 							<span class="subject">
 
@@ -198,7 +198,7 @@
 
 							<a href="inbox.html?a=view">
 
-							<span class="photo"><img src="/ui/image/avatar3.jpg" alt="" /></span>
+							<span class="photo"><img src="/ui/images/avatar3.jpg" alt="" /></span>
 
 							<span class="subject">
 
@@ -224,7 +224,7 @@
 
 							<a href="inbox.html?a=view">
 
-							<span class="photo"><img src="/ui/image/avatar1.jpg" alt="" /></span>
+							<span class="photo"><img src="/ui/images/avatar1.jpg" alt="" /></span>
 
 							<span class="subject">
 
@@ -428,7 +428,7 @@
 
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-					<img alt="" src="/ui/image/avatar1_small.jpg" />
+					<img alt="" src="/ui/images/avatar1_small.jpg" />
 
 					<span class="username">Bob Nilson</span>
 

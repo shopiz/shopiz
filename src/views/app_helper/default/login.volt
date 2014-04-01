@@ -5,7 +5,7 @@
         ->addJs("ui/js/??login.js");
 ?>
     <div class="logo">
-        <img src="/ui/image/logo-big.png" alt="" />
+        <img src="/ui/images/logo-big.png" alt="" />
     </div>
 
     <div class="content">

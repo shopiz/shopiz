@@ -79,7 +79,7 @@
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="/ui/js/app/base.js" type="text/javascript"></script>
     {{ assets.outputJs('footer') }}
-    <link rel="shortcut icon" href="/ui/image/favicon.ico" />
+    <link rel="shortcut icon" href="/ui/images/favicon.ico" />
 </head>
 
 <body class="{{page}} page-header-fixed">

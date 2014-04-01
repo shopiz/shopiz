@@ -46,7 +46,7 @@
 
 	<!-- END PAGE LEVEL STYLES -->
 
-	<link rel="shortcut icon" href="/ui/image/favicon.ico" />
+	<link rel="shortcut icon" href="/ui/images/favicon.ico" />
 
 </head>
 
