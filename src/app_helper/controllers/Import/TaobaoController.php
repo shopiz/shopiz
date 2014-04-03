@@ -132,7 +132,9 @@ class TaobaoController extends \BaseController
                 if ($propList['status'] == 1) {
                     foreach ($propList['result'] as $k2 =>$v2) {
                         // print_r($v2);
-                        if (empty($v2)) {
+                        // if (empty($v2)) {
+                        if (!isset($v2['pid'])) {
+                            print_r($v2);
                             echo 1, '<br />';
                             continue;
                         }
@@ -205,7 +207,7 @@ class TaobaoController extends \BaseController
         // } while (!empty($parent_cids));
 
 
-        echo \Api\Taobao\TopClient::$callTimes, ", success";
+        // echo \Api\Taobao\TopClient::$callTimes, ", success";
         exit;
     }
 

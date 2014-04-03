@@ -39,46 +39,14 @@
                                 <td>
                                     <!-- <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a> -->
                                     {% if item['is_parent'] == 'false' %}
-                                    <a href="/taobao/category/prop/{{item['cid']}}">查看属性</a>
+                                    <a href="/taobao/property/index/{{item['cid']}}">查看属性</a>
                                     {% endif %}
                                 </td>
                             </tr>
                             {% endfor %}
                             {% endif %}
-                            <!-- <tr class="">
-                                <td>&nbsp;</td>
-                                <td><input type="text" name="category_new[0][0][sort_order]" value="255" class="span12" /></td>
-                                <td>
-                                    <div class="category-level-lv1">
-                                        <input type="text" name="category_new[0][0][category_name]" value="" />
-                                        <input type="hidden" name="category_new[0][0][level]" value="1" />
-                                    </div>
-                                </td>
-                                <td><input type="text" name="category_new[0][0][identify]" value="" /></td>
-                                <td>
-                                    <div class="switch make-switch" data-on="primary" data-off="info">
-                                        <input type="checkbox" name="category_new[0][0][enabled]" value="1" checked rel="" class="switch-enabled" />
-                                    </div>
-                                </td>
-                                <td>&nbsp;</td>
-                            </tr> -->
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td colspan="4">
-                                    <!-- <a href="javascript:;" rel="0" level="0" class="category-add-top">添加顶级栏目</a> -->
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
-                    <div class="control-group">
-                        <div class="controls">
-                            <input type="hidden" name="act" value="category_update" />
-                            <button type="submit" class="btn btn-primary">批量更新</button>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>
