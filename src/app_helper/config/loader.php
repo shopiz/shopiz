@@ -20,3 +20,10 @@ $loader->registerDirs(
 		LIBRARY_PATH . "plugins/",
 	)
 )->register();
+
+$loader->registerNamespaces(
+	array(
+		'\import' => '\Import',
+		'\taobao' => '\Taobao',
+	)
+)->register();

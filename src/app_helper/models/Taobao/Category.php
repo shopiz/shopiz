@@ -138,4 +138,35 @@ class Category extends \ShopIZ\Base\Model
 
         return $ret;
     }
+
+    /**
+     * 获取分类列表
+     * @param mixed $parent_id
+     * @param int   $type
+     *        1: 上级分类ID为键
+     *        2: 子分类跟在父类后面
+     *        3: 分类ID为键
+     *        4: 子分类在children中
+     * @param mixed $is_show
+     */
+    public function getPropList($cid = 0, $type = 1)
+    {
+        $s1 = microtime(true);
+
+        $sql = "SELECT pid, name, parent_pid, parent_vid, must, multi, features, prop_values, child_template,
+                    is_key_prop, is_sale_prop, is_color_prop, is_enum_prop, is_item_prop, prop_values, status, sort_order
+                FROM taobao_category_prop
+                WHERE cid=:cid
+                ORDER BY sort_order";
+        $res = $this->db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC, array('cid' => $cid));
+
+        $propList = array();
+        foreach ($res as $k => $v) {
+            $v['features'] = unserialize($v['features']);
+            $v['prop_values'] = unserialize($v['prop_values']);
+            $propList[] = $v;
+        }
+
+        return $propList;
+    }
 }

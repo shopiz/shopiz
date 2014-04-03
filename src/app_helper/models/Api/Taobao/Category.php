@@ -25,7 +25,7 @@ class Category extends \Api\Taobao\TopClient
     public function getItemCategoryList($parentCid, $cids = '')
     {
         $req = new \Api\Taobao\Request\ItemcatsGetRequest();
-        $req->setFields("cid,parent_cid,name,is_parent, status, sort_order");
+        $req->setFields("cid,parent_cid,name,is_parent,status,sort_order");
         $req->setParentCid($parentCid);
         if (!empty($cids)) {
             $req->setCids($cids);
@@ -62,7 +62,7 @@ class Category extends \Api\Taobao\TopClient
     public function getItemPropList($sessionKey, $params = array())
     {
         $req = new \Api\Taobao\Request\ItempropsGetRequest();
-        $req->setFields("is_input_prop,cid,features,pid,parent_pid,parent_vid,name,is_key_prop,is_sale_prop,is_color_prop,is_enum_prop,is_item_prop,must,multi,prop_values,status,sort_order,child_template,is_allow_alias");
+        $req->setFields("is_input_prop,cid,features,pid,parent_pid,parent_vid,name,child_template,is_allow_alias,is_key_prop,is_sale_prop,is_color_prop,is_enum_prop,is_item_prop,must,multi,prop_values,status,sort_order");
         $req->setCid($params['cid']);
         unset($params['cid']);
         foreach ($params as $k => $v) {
