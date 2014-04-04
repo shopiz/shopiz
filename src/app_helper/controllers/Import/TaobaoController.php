@@ -130,6 +130,7 @@ class TaobaoController extends \BaseController
 
 
                 if ($propList['status'] == 1) {
+                    $propNumber = 0;
                     foreach ($propList['result'] as $k2 =>$v2) {
                         // print_r($v2);
                         // if (empty($v2)) {
@@ -138,6 +139,7 @@ class TaobaoController extends \BaseController
                             echo 1, '<br />';
                             continue;
                         }
+                        $cid = isset($v2['cid']) ? $v2['cid'] : $v1['cid'];
                         $sql = "INSERT INTO taobao_category_prop(pid, cid, parent_pid, parent_vid, name, must, multi, features, prop_values, child_template, is_input_prop, is_key_prop, is_sale_prop, is_color_prop, is_enum_prop, is_item_prop, is_allow_alias, status, sort_order, lasttime)
                                 VALUES(:pid, :cid, :parent_pid, :parent_pid, :name, :must, :multi, :features, :prop_values, :child_template, :is_input_prop, :is_key_prop, :is_sale_prop, :is_color_prop, :is_enum_prop, :is_item_prop, :is_allow_alias, :status, :sort_order, :lasttime)
                                 ON DUPLICATE KEY
@@ -150,7 +152,7 @@ class TaobaoController extends \BaseController
                         // }
                         $params = array(
                                 ':pid' => $v2['pid'],
-                                ':cid' => isset($v2['cid']) ? $v2['cid'] : $v1['cid'],
+                                ':cid' => $cid,
                                 ':parent_pid' => isset($v2['parent_pid']) ? $v2['parent_pid'] : 0,
                                 ':parent_vid' => isset($v2['parent_pid']) ? $v2['parent_pid'] : 0,
                                 ':name' => $v2['name'],
@@ -171,7 +173,11 @@ class TaobaoController extends \BaseController
                                 ':lasttime' => $_SERVER['REQUEST_TIME'],
                             );
                         $this->db->query($sql, $params);
+                        $propNumber ++;
                     }
+
+                    $sql = "UPDATE taobao_category SET prop_number = :prop_number WHERE cid=:cid";
+                    $this->db->query($sql, array(':cid' => $cid, ':prop_number' => $propNumber));
                 }
             }
         }
@@ -207,7 +213,7 @@ class TaobaoController extends \BaseController
         // } while (!empty($parent_cids));
 
 
-        // echo \Api\Taobao\TopClient::$callTimes, ", success";
+        echo \Api\Taobao\TopClient::$callTimes, ", success";
         exit;
     }
 

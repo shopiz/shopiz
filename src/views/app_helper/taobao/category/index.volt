@@ -18,6 +18,7 @@
                             <tr>
                                 <th class="span1"><!-- 编号 --></th>
                                 <th class="span3">分类名称</th>
+                                <th class="span1">属性数量</th>
                                 <th class="span1">排序</th>
                                 <!-- <th class="span2">是否可用</th> -->
                                 <!-- <th class="span2">修改时间</th> -->
@@ -34,11 +35,11 @@
                                         {{ item['name'] }}({{ item['cid'] }})
                                     </div>
                                 </td>
-                                <td>{{ item['sort_order'] }}
-                                <!-- <td>&nbsp;</td> -->
+                                <td>{{ item['prop_number'] }}</td>
+                                <td>{{ item['sort_order'] }}</td>
                                 <td>
                                     <!-- <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a> -->
-                                    {% if item['is_parent'] == 'false' %}
+                                    {% if item['prop_number'] > 0 %}
                                     <a href="/taobao/property/index/{{item['cid']}}">查看属性</a>
                                     {% endif %}
                                 </td>

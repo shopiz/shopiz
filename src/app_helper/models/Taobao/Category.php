@@ -31,7 +31,7 @@ class Category extends \ShopIZ\Base\Model
     public function processCategoryList($parentCid)
     {
         if (self::$_catList === null) {
-            $sql = "SELECT cid, name, parent_cid, is_parent, status, sort_order FROM taobao_category
+            $sql = "SELECT cid, name, parent_cid, is_parent, prop_number, status, sort_order FROM taobao_category
                     ORDER BY parent_cid, sort_order";
             $res = $this->db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC);
 
