@@ -7,11 +7,11 @@ class Model extends \Phalcon\Mvc\Model
     protected static $_inst = array();
 
     protected static $db = null;
-    
+
     protected static $modelsManager = null;
 
-    public $tablePrefix = "ok_";
-    
+    public $tablePrefix = "";
+
     /**
      * Initialize method for model.
      */
@@ -28,7 +28,7 @@ class Model extends \Phalcon\Mvc\Model
         $this->db = $this->di->get('db');
         $this->modelsManager = $this->di->get('modelsManager');
     }
-    
+
     static public function inst()
     {
         //

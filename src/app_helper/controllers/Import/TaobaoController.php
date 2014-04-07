@@ -121,13 +121,15 @@ class TaobaoController extends \BaseController
 
         // $propList = array();
         // $categoryList = new \Taobao\Category()->getCategoryList(0, 2);
+        $sTime = microtime(true);
+        $sNum = 0;
         foreach ($categoryList as $k1 => $v1) {
             if ($v['is_parent'] != 'true') {
+                $cid = $v1['cid'];
                 $params = array(
-                    'cid' => $v1['cid'],
+                    'cid' => $cid,
                 );
                 $propList = $category->getItemPropList($this->_sessionKey, $params);
-
 
                 if ($propList['status'] == 1) {
                     $propNumber = 0;
@@ -139,7 +141,6 @@ class TaobaoController extends \BaseController
                             echo 1, '<br />';
                             continue;
                         }
-                        $cid = isset($v2['cid']) ? $v2['cid'] : $v1['cid'];
                         $sql = "INSERT INTO taobao_category_prop(pid, cid, parent_pid, parent_vid, name, must, multi, features, prop_values, child_template, is_input_prop, is_key_prop, is_sale_prop, is_color_prop, is_enum_prop, is_item_prop, is_allow_alias, status, sort_order, lasttime)
                                 VALUES(:pid, :cid, :parent_pid, :parent_pid, :name, :must, :multi, :features, :prop_values, :child_template, :is_input_prop, :is_key_prop, :is_sale_prop, :is_color_prop, :is_enum_prop, :is_item_prop, :is_allow_alias, :status, :sort_order, :lasttime)
                                 ON DUPLICATE KEY
@@ -172,12 +173,29 @@ class TaobaoController extends \BaseController
                                 ':sort_order' => $v2['sort_order'],
                                 ':lasttime' => $_SERVER['REQUEST_TIME'],
                             );
-                        $this->db->query($sql, $params);
-                        $propNumber ++;
+                        $flag = $this->db->execute($sql, $params);
+
+                        // if ($cid == '50004887') {
+                        //     print_r($flag);exit;
+                        // }
+                        if ($flag == 1) {
+                            // print_r($flag);exit;
+                            $propNumber ++;
+                            $sNum ++;
+                            if ($sNum >= 500 && microtime(true) - $sTime<60) {
+                                // echo 'sleep<br />';
+                                // sleep(microtime(true) - $sTime);
+                                $sTime = microtime(true);
+                                $sNum = 0;
+                            }
+                        } else {
+                            print_r($flag);exit;
+                        }
                     }
 
                     $sql = "UPDATE taobao_category SET prop_number = :prop_number WHERE cid=:cid";
-                    $this->db->query($sql, array(':cid' => $cid, ':prop_number' => $propNumber));
+                    $flag = $this->db->execute($sql, array(':cid' => $cid, ':prop_number' => $propNumber));
+                    // print_r($flag);exit;
                 }
             }
         }

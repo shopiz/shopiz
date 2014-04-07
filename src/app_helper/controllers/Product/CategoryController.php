@@ -7,7 +7,8 @@ class CategoryController extends \BaseController
 
     public function indexAction()
     {
-        $category = new \Taobao\Category();
+
+        $category = new \Product\Category();
 
         $categoryList = $category->getCategoryList(0, 2);
 
