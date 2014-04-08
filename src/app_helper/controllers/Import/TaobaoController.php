@@ -123,11 +123,12 @@ class TaobaoController extends \BaseController
         // $categoryList = new \Taobao\Category()->getCategoryList(0, 2);
         foreach ($categoryList as $k1 => $v1) {
             if ($v['is_parent'] != 'true') {
+                // $v1['cid'] = 50069555;
                 $params = array(
                     'cid' => $v1['cid'],
                 );
                 $propList = $category->getItemPropList($this->_sessionKey, $params);
-
+                // print_r($propList);
 
                 if ($propList['status'] == 1) {
                     $propNumber = 0;
@@ -135,7 +136,6 @@ class TaobaoController extends \BaseController
                         // print_r($v2);
                         // if (empty($v2)) {
                         if (!isset($v2['pid'])) {
-                            print_r($v2);
                             echo 1, '<br />';
                             continue;
                         }
@@ -172,13 +172,17 @@ class TaobaoController extends \BaseController
                                 ':sort_order' => $v2['sort_order'],
                                 ':lasttime' => $_SERVER['REQUEST_TIME'],
                             );
-                        $this->db->query($sql, $params);
+                        $flag = $this->db->query($sql, $params);
+                        // print_r($flag);
                         $propNumber ++;
                     }
+                    // if ($i ++ > 50) break;
+                    // echo $propNumber, ', ', $cid, '<br />';
 
                     $sql = "UPDATE taobao_category SET prop_number = :prop_number WHERE cid=:cid";
                     $this->db->query($sql, array(':cid' => $cid, ':prop_number' => $propNumber));
                 }
+                // exit;
             }
         }
         // do {
