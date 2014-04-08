@@ -6,7 +6,46 @@
     select {margin:5px 0px;}
     .table th, .table td {vertical-align: middle;}
     .table td input { margin:0px; }
-</style>
+
+    .category-level-lv2 {
+        padding-left: 45px;
+        background: url(../images/bg_repno.png) no-repeat -270px -545px;
+    }
+    .category-level-lv2-last {
+        padding-left: 45px;
+        background: url(../images/bg_repno.png) no-repeat -270px -595px;
+    }
+    .category-level-lv3 {
+        padding-left: 100px;
+        background: url(../images/bg_repno.png) no-repeat -215px -550px;
+    }
+    .category-level-lv3-last {
+        padding-left: 100px;
+        background: url(../images/bg_repno.png) no-repeat -215px -595px;
+    }
+    .category-level-lv4 {
+        padding-left: 155px;
+        background: url(../images/bg_repno.png) no-repeat -160px -550px;
+    }
+    .category-level-lv5 {
+        padding-left: 210px;
+        background: url(../images/bg_repno.png) no-repeat -105px -550px;
+    }
+    .category-add-children {
+        margin-right: 5px;
+        padding-left: 17px;
+        line-height: 25px;
+        background: url(../images/bg_repno.png) no-repeat 0 -599px;
+        color: #FFF;
+        zoom: 1;
+    }
+    .category-add-top {
+        padding-left: 17px;
+        line-height: 25px;
+        background: url(../images/bg_repno.png) no-repeat 0 1px;
+        color: #F60;
+    }
+    </style>
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -17,9 +56,10 @@
                         <thead>
                             <tr>
                                 <th class="span1"><!-- 编号 --></th>
-                                <th class="span3">分类名称</th>
                                 <th class="span1">排序</th>
-                                <!-- <th class="span2">是否可用</th> -->
+                                <th class="span3">分类名称</th>
+                                <th class="span3">分类标识</th>
+                                <th class="span2">是否可用</th>
                                 <!-- <th class="span2">修改时间</th> -->
                                 <th class="span2">操作</th>
                             </tr>
@@ -27,20 +67,23 @@
                         <tbody id="category-table-body">
                             {% if category_list is iterable %}
                             {% for key, item in category_list %}
-                            <tr class="tuangrou_category_{$item.category_id}{if $item.enabled eq 0} error{/if}">
+                            <tr class="tuangrou_category_{{ item['category_id']}}{%if item['enabled'] == 0%} error{% endif %}">
                                 <td><!-- {$item.category_id} --></td>
+                                <td><input type="text" name="category[{$item.parent_id}][{$item.category_id}][sort_order]" value="{$item.sort_order}" class="span12" /></td>
                                 <td>
-                                    <div class="category-level-lv{{ item['level'] }}">
-                                        {{ item['name'] }}({{ item['cid'] }})
+                                    <div class="category-level-lv{$item.level}">
+                                        <input type="text" name="category[{$item.parent_id}][{$item.category_id}][category_name]" value="{$item.category_name}" />
+                                        <!-- <a href="javascript:;" rel="{$item.category_id}" level="{$item.level}" class="category-add-children">添加子分类</a> -->
                                     </div>
                                 </td>
-                                <td>{{ item['sort_order'] }}
-                                <!-- <td>&nbsp;</td> -->
+                                <td><input type="text" name="category[{$item.parent_id}][{$item.category_id}][identify]" value="{$item.identify}" disabled="disabled" /></td>
                                 <td>
-                                    <!-- <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a> -->
-                                    {% if item['is_parent'] == 'false' %}
-                                    <a href="/taobao/category/prop">查看属性</a>
-                                    {% endif %}
+                                    <div class="switch make-switch" data-on="primary" data-off="info">
+                                        <input type="checkbox" name="category[{$item.parent_id}][{$item.category_id}][enabled]" value="1"{if $item.enabled eq 1} checked{/if} rel="{$item.category_id}" class="switch-enabled" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a>
                                 </td>
                             </tr>
                             {% endfor %}
