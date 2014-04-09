@@ -17,6 +17,8 @@ class Category extends \ShopIZ\Base\Model
     private static $_catList = null;
     private static $_categoryList = null;
 
+    private $category_id;
+
     public function columnMap() {
         return array(
             'category_id'   => 'category_id',
@@ -31,43 +33,36 @@ class Category extends \ShopIZ\Base\Model
     public function processCategoryList($parent_id)
     {
         if (self::$_catList === null) {
-            $_s = microtime(true);
-            for ($i = 0; $i < 100; $i++) {
-                // \Phalcon\Mvc\Model\Criteria::query();
-                // $sql = "SELECT category_id, category_name, identify, parent_id, sort_order
-                //         FROM product_category
-                //         ORDER BY parent_id, sort_order";
-                // $res = $this->db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC);
-                // $sql = "SELECT category_id, category_name, identify, parent_id, enabled, sort_order
-                //         FROM \Product\Category
-                //         ORDER BY parent_id, sort_order";
-                // $dataset = $this->modelsManager->createQuery($sql)
-                //     ->execute();
-                // $this->query()
-                //     ->columns('category_id, category_name, identify, parent_id, sort_order')
-                //     // ->columns(array('category_id'))
-                //     // ->from('product_category')
-                //     ->orderBy('parent_id, sort_order')
-                //     ->execute();
-            }
-
-            // $this->createBuilder()
-            //     ->columns('category_id, category_name, identify, parent_id, sort_order')
-            //     // ->columns(array('category_id'))
-            //     ->from('product_category')
-            //     ->orderBy(array('parent_id', 'sort_order'))
-            //     ->getQuery()
-            //     ->execute();
-            // $this->modelsManager->createBuilder()
-            //     ->columns('category_id, category_name, identify, parent_id, sort_order')
-            //     // ->columns(array('category_id'))
-            //     ->from('product_category')
-            //     ->orderBy(array('parent_id', 'sort_order'))
-            //     ->getQuery()
-            //     ->execute();
-            echo microtime(true) - $_s;
-            // print_r($dataset);
-            exit;
+            // $_s = microtime(true);
+            // for ($i = 0; $i < 1000; $i++) {
+            //     // \Phalcon\Mvc\Model\Criteria::query();
+            //     // $sql = "SELECT category_id, category_name, identify, parent_id, sort_order
+            //     //         FROM product_category
+            //     //         ORDER BY parent_id, sort_order";
+            //     // $res = $this->db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC);
+            //     // $sql = "SELECT category_id, category_name, identify, parent_id, enabled, sort_order
+            //     //         FROM \Product\Category
+            //     //         ORDER BY parent_id, sort_order";
+            //     // $dataset = $this->modelsManager->createQuery($sql)
+            //     //     ->execute();
+            //     // $this->query()
+            //     //     // ->columns('category_id, category_name, identify, parent_id, sort_order')
+            //     //     ->columns(array('category_id'))
+            //     //     // ->from('product_category')
+            //     //     ->orderBy('parent_id, sort_order')
+            //     //     ->execute();
+            //     // $query = $this->modelsManager->createBuilder()
+            //     //     ->columns('category_id, category_name, identify, parent_id, sort_order')
+            //     //     ->from('Product\Category')
+            //     //     ->orderBy(array('parent_id', 'sort_order'))
+            //     //     ->getQuery()
+            //     //     ->execute();
+            // }
+            // echo microtime(true) - $_s;
+            $sql = "SELECT category_id, category_name, identify, parent_id, enabled, is_delete, sort_order
+                    FROM product_category
+                    ORDER BY parent_id, sort_order";
+            $res = $this->db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC);
 
             self::$_catList = array();
             $index = array();
@@ -81,8 +76,8 @@ class Category extends \ShopIZ\Base\Model
         }
 
         // $categoryList = array();
-        if (isset(self::$_catList[$parent_id])) {
-            foreach (self::$_catList[$parentCid] as $k => $v) {
+        if (isset(self::$_catList[$parent_id]) && is_array(self::$_catList[$parent_id])) {
+            foreach (self::$_catList[$parent_id] as $k => $v) {
                 self::$_categoryList[] = $v;
                 $this->processCategoryList($v['category_id']);
             }

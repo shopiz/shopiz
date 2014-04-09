@@ -51,44 +51,48 @@
         <div class="row-fluid">
             <div class="span12">
 
-                <form action="tuangou.php" method="POST">
+                <form action="/product/category/update" method="POST">
                     <table class="table table-striped table-bordered table-hover category-list-table">
                         <thead>
                             <tr>
-                                <th class="span1"><!-- 编号 --></th>
+                                <th class="span1">
+                                    <input type="checkbox" class="group-checkable" data-set=".checkboxes" />
+                                </th>
                                 <th class="span1">排序</th>
                                 <th class="span3">分类名称</th>
                                 <th class="span3">分类标识</th>
                                 <th class="span2">是否可用</th>
                                 <!-- <th class="span2">修改时间</th> -->
-                                <th class="span2">操作</th>
+                                <!-- <th class="span2">操作</th> -->
                             </tr>
                         </thead>
                         <tbody id="category-table-body">
                             {% if category_list is iterable %}
                             {% for key, item in category_list %}
-                            <tr class="tuangrou_category_{{ item['category_id']}}{%if item['enabled'] == 0%} error{% endif %}">
-                                <td><!-- {$item.category_id} --></td>
-                                <td><input type="text" name="category[{$item.parent_id}][{$item.category_id}][sort_order]" value="{$item.sort_order}" class="span12" /></td>
+                            <tr class="category_{{ item['category_id']}}{%if item['enabled'] == 0%} error{% endif %}">
                                 <td>
-                                    <div class="category-level-lv{$item.level}">
-                                        <input type="text" name="category[{$item.parent_id}][{$item.category_id}][category_name]" value="{$item.category_name}" />
-                                        <!-- <a href="javascript:;" rel="{$item.category_id}" level="{$item.level}" class="category-add-children">添加子分类</a> -->
+                                    <input type="checkbox" class="checkboxes" value="1" />
+                                </td>
+                                <td><input type="text" name="category[{{ item['parent_id'] }}][{{ item['category_id'] }}][sort_order]" value="{{ item['sort_order'] }}" class="span12" /></td>
+                                <td>
+                                    <div class="category-level-lv{{ item['level'] }}">
+                                        <input type="text" name="category[{{ item['parent_id'] }}][{{ item['category_id'] }}][category_name]" value="{{ item['category_name'] }}" />
+                                        <a href="javascript:;" rel="{{ item['category_id'] }}" level="{{ item['level'] }}" class="category-add-children">添加子分类</a>
                                     </div>
                                 </td>
-                                <td><input type="text" name="category[{$item.parent_id}][{$item.category_id}][identify]" value="{$item.identify}" disabled="disabled" /></td>
+                                <td><input type="text" name="category[{{ item['parent_id'] }}][{{ item['category_id'] }}][identify]" value="{{ item['identify'] }}" disabled="disabled" /></td>
                                 <td>
                                     <div class="switch make-switch" data-on="primary" data-off="info">
-                                        <input type="checkbox" name="category[{$item.parent_id}][{$item.category_id}][enabled]" value="1"{if $item.enabled eq 1} checked{/if} rel="{$item.category_id}" class="switch-enabled" />
+                                        <input type="checkbox" name="category[{{ item['parent_id'] }}][{{ item['category_id'] }}][enabled]" value="1"{% if item['enabled'] == 1 %} checked{% endif %} rel="{{ item['category_id'] }}" class="switch-enabled" />
                                     </div>
                                 </td>
-                                <td>
-                                    <a href="tuangou.php?act=manage&id={$item.category_id}">更新</a>
-                                </td>
+                                <!-- <td>
+                                    <a href="tuangou.php?act=manage&id={{ item['category_id'] }}">更新</a>
+                                </td> -->
                             </tr>
                             {% endfor %}
                             {% endif %}
-                            <!-- <tr class="">
+                            <tr class="">
                                 <td>&nbsp;</td>
                                 <td><input type="text" name="category_new[0][0][sort_order]" value="255" class="span12" /></td>
                                 <td>
@@ -103,15 +107,15 @@
                                         <input type="checkbox" name="category_new[0][0][enabled]" value="1" checked rel="" class="switch-enabled" />
                                     </div>
                                 </td>
-                                <td>&nbsp;</td>
-                            </tr> -->
+                                <!-- <td>&nbsp;</td> -->
+                            </tr>
                         </tbody>
                         <tbody>
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td colspan="4">
-                                    <!-- <a href="javascript:;" rel="0" level="0" class="category-add-top">添加顶级栏目</a> -->
+                                    <a href="javascript:;" rel="0" level="0" class="category-add-top">添加顶级栏目</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -154,20 +158,48 @@
             lineHtml += "                                    <input type=\"checkbox\" name=\"category_new["+pid+"]["+category[pid].i+"][enabled]\" value=\"1\" checked rel=\"\" class=\"switch-enabled\" />";
             lineHtml += "                                </div>";
             lineHtml += "                            </td>";
-            lineHtml += "                            <td>";
+            // lineHtml += "                            <td>";
             // lineHtml += "                                <a href=\"javascript:;\" rel=\"\" class=\"remove\">删除</a>";
-            lineHtml += "                            </td>";
+            // lineHtml += "                            </td>";
             lineHtml += "                        </tr>";
             if (pid > 0) {
                 $(this).parents('tr').after(lineHtml);
             } else {
                 // $("#category-table-body").append(lineHtml);
-                console.log($(this).parents('tr'));
+                // console.log($(this).parents('tr'));
                 $(this).parents('tr').before(lineHtml);
             }
             $(".category-list-table").find("input[name='category_new["+pid+"]["+category[pid].i+"][enabled]']")
-                .parent().bootstrapSwitch();
+                .parent().toggleButtons({
+                    width: 100,
+                    label: {
+                        enabled: "可用",
+                        disabled: "禁用"
+                    }
+                });
             // index += 1;
             category[pid].i++;
+        });
+
+        $('.make-switch').toggleButtons({
+            width: 100,
+            label: {
+                enabled: "可用",
+                disabled: "禁用"
+            }
+        });
+
+        $('.group-checkable').change(function () {
+            var set = $(this).attr("data-set");
+            var checked = $(this).is(":checked");
+            $(set).each(function () {
+                if (checked) {
+                    $(this).attr("checked", true);
+                } else {
+                    $(this).attr("checked", false);
+                }
+            });
+            console.log(set);
+            $.uniform.update(set);
         });
     </script>
