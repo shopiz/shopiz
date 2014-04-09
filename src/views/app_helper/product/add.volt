@@ -59,7 +59,7 @@
 								<div class="control-group">
 									<label class="control-label">商品分类</label>
 									<div class="controls">
-										<select data-placeholder="请选择商品分类" class="chosen span6" multiple="multiple">
+										<select data-placeholder="请选择商品分类" class="chosen span10" multiple="multiple">
 											<option value=""></option>
 											<optgroup label="NFC EAST">
 												<option>Dallas Cowboys</option>
@@ -72,13 +72,40 @@
 								</div>
 
 								<div class="control-group">
-									<label class="control-label">Checkbox</label>
+									<label class="control-label">品牌</label>
+									<div class="controls">
+										<select id="brand_id" class="m-wrap medium select2">
+											<option value="">请选择品牌</option>
+											<option value="AL">Alabama</option>
+											<option value="WY">Wyoming</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">商品价格</label>
+									<div class="controls">
+										<input type="text" name="shop_price" placeholder="" class="m-wrap medium" />
+										<span class="help-inline">请输入商品价格，精确到两位小数</span>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">市场价格</label>
+									<div class="controls">
+										<input type="text" name="market_price" placeholder="" class="m-wrap medium" />
+										<span class="help-inline">请输入市场价格，精确到两位小数</span>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">商品推荐</label>
 									<div class="controls">
 										<label class="checkbox">
-										<input type="checkbox" value="" /> Checkbox 1
+										<input name="flag[]" type="checkbox" value="1" /> 新品
 										</label>
 										<label class="checkbox">
-										<input type="checkbox" value="" /> Checkbox 2
+										<input name="flag[]" type="checkbox" value="2" /> 热卖
 										</label>
 									</div>
 								</div>
@@ -106,7 +133,7 @@
 								<div class="control-group">
 									<div class="controls">
 										<div class="text-toggle-button">
-											<textarea>Your content here.</textarea>
+											<textarea></textarea>
 										</div>
 									</div>
 								</div>
