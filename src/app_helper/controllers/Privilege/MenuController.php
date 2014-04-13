@@ -7,12 +7,14 @@ class MenuController extends \BaseController
 
     public function indexAction()
     {
-    	$privilege_menu = new \Privilege_Menu();
+        $privilege_menu = new \Privilege\Menu();
 
-    	$menu_list = $privilege_menu->getMenuList();
-    	var_dump($menu_list);exit;
+        $menuList = $privilege_menu->getMenuList(0, 2);
 
-    	$this->view->setVar('menu_list', $menu_list);
+        // print_r($menuList);exit;
+
+        $this->view->setVar('menu_list', $menuList);
+
     }
 
 }
