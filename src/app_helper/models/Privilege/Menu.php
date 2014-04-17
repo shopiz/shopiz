@@ -22,7 +22,7 @@ class Menu extends \ShopIZ\Base\Model
             'menu_id'   => 'menu_id',
             'menu_name' => 'menu_name',
             'enabled'   => 'enabled',
-            'identify'  => 'identify',
+            'menu_url'  => 'menu_url',
             'lasttime'  => 'lasttime',
             'dateline'  => 'dateline',
         );
@@ -30,7 +30,7 @@ class Menu extends \ShopIZ\Base\Model
 
     public function getMenuInfo($menu_id)
     {
-        $sql = "SELECT menu_id, menu_name, enabled, identify, lasttime, dateline
+        $sql = "SELECT menu_id, menu_name, menu_url, enabled, lasttime, dateline
                 FROM {$this->tableName}
                 WHERE menu_id=:menu_id AND is_delete=0";
         $stmt = $this->db->prepare($sql);
@@ -50,7 +50,7 @@ class Menu extends \ShopIZ\Base\Model
     public function processMenuList($parent_id)
     {
         if (self::$_menuList === null) {
-            $sql = "SELECT menu_id, menu_name, parent_id, enabled, is_delete, sort_order
+            $sql = "SELECT menu_id, menu_name, menu_url, parent_id, enabled, is_delete, sort_order
                     FROM {$this->tableName}
                     ORDER BY parent_id, sort_order";
             $res = $this->db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC);

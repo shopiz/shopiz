@@ -199,7 +199,6 @@
                     $(this).attr("checked", false);
                 }
             });
-            console.log(set);
             $.uniform.update(set);
         });
     </script>
