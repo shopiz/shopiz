@@ -1,5 +1,5 @@
 <?php
-namespace Taobao\Shop;
+namespace Api\Taobao\Shop;
 
 class Items extends \Api\Taobao\TopClient
 {
@@ -32,7 +32,6 @@ class Items extends \Api\Taobao\TopClient
         }
         $resp = $this->execute($req, $sessionKey);
 
-        // print_r($resp);
         if (isset($resp['code'])) {
             $res = array(
                 'ok' => 0,

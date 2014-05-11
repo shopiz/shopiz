@@ -1,8 +1,10 @@
 <?php
-namespace Taobao\Shop;
+namespace Api\Taobao\Shop;
 
 class Category extends \Api\Taobao\TopClient
 {
+
+    private static $_errors = array();
 
     private $type = array(
         'manual_type',

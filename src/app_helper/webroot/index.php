@@ -9,7 +9,7 @@ try {
      * 环境
      * 可选值：production, develop, test
      */
-	define('ENVIRON', 'develop');
+	define('ENVIRON', 'production');
 
     define("DS", DIRECTORY_SEPARATOR);
 
