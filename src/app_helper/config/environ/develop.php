@@ -17,7 +17,7 @@ return array(
         'taobao' => array(
             'appkey' => '1021753629',
             'secretKey' => 'sandboxffa29a294085773629049d4c8',
-            'format' => 'xml',
+            'format' => 'json',
             'gatewayUrl' => 'http://gw.api.tbsandbox.com/router/rest',
 
 

@@ -3,21 +3,20 @@
 return array(
     'database' => array(
         "adapter"     => "Mysql",
-        "host"        => "10.0.0.38",
-        "username"    => "ok_shop_v5",
+        "host"        => "172.16.30.210",
+        "username"    => "shopiz",
         "password"    => "4QLizqJEYIMFI&spPu!TVvzHmIA2m!LS",
-        "dbname"      => "ok_shop_v5",
+        "dbname"      => "shopiz",
         "charset"     => "utf8",
     ),
     'application' => array(
-        'showErrors'     => false,
+        'showErrors'     => true,
         'baseUri'        => '/',
     ),
     'api' => array(
         'taobao' => array(
-            'app_key' => '21753629',
-            'app_secret' => 'da37124ffa29a294085773629049d4c8',
             'format' => 'json',
+            'gatewayUrl' => 'http://gw.api.taobao.com/router/rest',
         ),
     ),
 );

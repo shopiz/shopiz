@@ -32,6 +32,7 @@ class Items extends \Api\Taobao\TopClient
         }
         $resp = $this->execute($req, $sessionKey);
 
+        // print_r($resp);exit;
         if (isset($resp['code'])) {
             $res = array(
                 'ok' => 0,
@@ -131,6 +132,7 @@ class Items extends \Api\Taobao\TopClient
         do {
             $req->setPageNo($page);
             $resp = $this->execute($req, $sessionKey);
+            // print_r($resp);exit;
             // echo count($resp['items']['item']), '<br />';
             // sleep(2);
             if (!empty($resp['items']['item'])) {

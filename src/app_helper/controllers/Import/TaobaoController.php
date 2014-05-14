@@ -7,9 +7,13 @@ class TaobaoController extends \BaseController
 
     public function indexAction()
     {
-
-     //    $sessionKey = '6101607b08b33df1a4da9bc126d6784fd4f8f1136506caa2074082786';
-     //    $userNick   = 'sandbox_c_1';
+        // $sessionKey = '6101607b08b33df1a4da9bc126d6784fd4f8f1136506caa2074082786';
+        /**
+         * session: 6101923c8e08ae018deae939495ff5d1c38f3a219f0200584436708
+         * refresh_token: 61014239f96a079d7c3ae82397cc1a01547d01f8848452e84436708
+         */
+        // $sessionKey = '6101923c8e08ae018deae939495ff5d1c38f3a219f0200584436708';
+        // $userNick   = 'n百万';
 
     	// // $shop = new \Taobao\Shop();
     	// $items = new \Taobao\Shop\Items();
@@ -31,11 +35,6 @@ class TaobaoController extends \BaseController
         // print_r($item_list);
         // exit;
 
-
-
-        // $category = new \Taobao\Shop\Category();
-        // $categoryList = $category->getCategoryList($userNick);
-        // print_r($categoryList);exit;
 
 
         // $category->getShopCategoryList();
@@ -92,7 +91,7 @@ class TaobaoController extends \BaseController
                                 ':cid' => $v['cid'],
                                 ':parent_cid' => $v['parent_cid'],
                                 ':name' => $v['name'],
-                                ':is_parent' => $v['is_parent'],
+                                ':is_parent' => !!$v['is_parent'] ? 1 : 0,
                                 ':status' => $v['status'],
                                 ':sort_order' => $v['sort_order'],
                                 ':lasttime' => $_SERVER['REQUEST_TIME'],
@@ -110,7 +109,8 @@ class TaobaoController extends \BaseController
         } while (!empty($parent_cids));
 
 
-        echo \Api\Taobao\TopClient::$callTimes, ", success";exit;
+        echo \Api\Taobao\TopClient::$callTimes, ", success";
+        exit;
     }
 
     public function propsAction()
@@ -157,18 +157,18 @@ class TaobaoController extends \BaseController
                                 ':parent_pid' => isset($v2['parent_pid']) ? $v2['parent_pid'] : 0,
                                 ':parent_vid' => isset($v2['parent_pid']) ? $v2['parent_pid'] : 0,
                                 ':name' => $v2['name'],
-                                ':must' => $v2['must'],
-                                ':multi' => $v2['multi'],
+                                ':must' => !!$v2['must'] ? 1 : 0,
+                                ':multi' => !!$v2['multi'] ? 1 : 0,
                                 ':features' => isset($v2['features']) ? serialize($v2['features']) : '',
                                 ':prop_values' => isset($v2['prop_values']) ? serialize($v2['prop_values']) : '',
                                 ':child_template' => isset($v2['child_template']) ? serialize($v2['child_template']) : '',
-                                ':is_input_prop' => isset($v2['is_input_prop']) ? $v2['is_input_prop'] : 'false',
-                                ':is_key_prop' => isset($v2['is_key_prop']) ? $v2['is_key_prop'] : 'false',
-                                ':is_sale_prop' => isset($v2['is_sale_prop']) ? $v2['is_sale_prop'] : 'false',
-                                ':is_color_prop' => isset($v2['is_color_prop']) ? $v2['is_color_prop'] : 'false',
-                                ':is_enum_prop' => isset($v2['is_enum_prop']) ? $v2['is_enum_prop'] : 'false',
-                                ':is_item_prop' => isset($v2['is_item_prop']) ? $v2['is_item_prop'] : 'false',
-                                ':is_allow_alias' => isset($v2['is_allow_alias']) ? $v2['is_allow_alias'] : 'false',
+                                ':is_input_prop' => !!$v2['is_input_prop'] ? 1 : 0,
+                                ':is_key_prop' => !!$v2['is_key_prop'] ? 1 : 0,
+                                ':is_sale_prop' => !!$v2['is_sale_prop'] ? 1 : 0,
+                                ':is_color_prop' => !!$v2['is_color_prop'] ? 1 : 0,
+                                ':is_enum_prop' => !!$v2['is_enum_prop'] ? 1 : 0,
+                                ':is_item_prop' => !!$v2['is_item_prop'] ? 1 : 0,
+                                ':is_allow_alias' => !$v2['is_allow_alias'] ? 1 : 0,
                                 ':status' => $v2['status'],
                                 ':sort_order' => $v2['sort_order'],
                                 ':lasttime' => $_SERVER['REQUEST_TIME'],
