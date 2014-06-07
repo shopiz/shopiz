@@ -4,8 +4,8 @@ return array(
     'database' => array(
         "adapter"     => "Mysql",
         "host"        => "172.16.30.210",
-        "username"    => "root",
-        "password"    => "okgj123qwe",
+        "username"    => "shopiz",
+        "password"    => "123456",
         "dbname"      => "shopiz",
         "charset"     => "utf8",
     ),

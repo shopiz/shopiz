@@ -5,6 +5,8 @@ class ProductController extends BaseController
 
     public function indexAction()
     {
+        $products = new Products();
+        $products->getProductList();
 
     }
 
