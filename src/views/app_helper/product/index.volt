@@ -3,7 +3,7 @@
         ->addCss("ui/css/??select2_metro.css,DT_bootstrap.css");
     $this->assets->collection('footer')
         ->addJs("ui/js/??select2.min.js,jquery.dataTables.js")
-        ->addJs("ui/js/??DT_bootstrap.js,table-editable.js,app/product.js");
+        ->addJs("ui/js/??DT_bootstrap.js,table-editable.js,app/product.js,showpage.js");
 ?>
 
 <div class="row-fluid">
@@ -50,23 +50,25 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for item in product_list.items %}
                         <tr class="">
-                            <td>alex</td>
-                            <td>Alex Nilson</td>
-                            <td>1234</td>
-                            <td class="center">￥10.00</td>
-                            <td class="center">￥10.00</td>
+                            <td>{{item.product_id}}</td>
+                            <td>{{item.product_sn}}</td>
+                            <td>{{item.product_name}}</td>
+                            <td class="center">￥{{item.product_price}}</td>
+                            <td class="center">￥{{item.market_price}}</td>
                             <td>
-                                <a class="edit" href="javascript:;">编辑</a>
-                                <a class="delete" href="javascript:;">删除</a>
+                                <a class="edit" href="javascript:;"><i class="icon-pencil"></i> 编辑</a>
+                                <a class="delete" href="javascript:;"><i class="icon-trash"></i> 删除</a>
                             </td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
 
                 <div class="row-fluid">
                     <div class="span6">
-                        <div class="dataTables_info">共 6 件商品 当前第 1/2 页</div>
+                        <div class="dataTables_info">共 {{product_list.total_items}} 件商品 当前第 {{product_list.current}}/{{product_list.total_pages}} 页</div>
                     </div>
                     <div class="span6">
                         <style>

@@ -6,8 +6,9 @@ class ProductController extends BaseController
     public function indexAction()
     {
         $products = new Products();
-        $products->getProductList();
+        $product_list = $products->getProductList();
 
+        $this->view->product_list = $product_list;
     }
 
     public function addAction()

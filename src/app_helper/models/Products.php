@@ -38,6 +38,10 @@ class Products extends \ShopIZ\Base\Model
 
     public function getProductList($params = array())
     {
+
+        !isset($params['limit']) && $params['limit'] = 10;
+        !isset($params['page']) && $params['page'] = 1;
+
         $builder = $this->modelsManager->createBuilder()
             ->columns('*')
             ->from('Products');
@@ -45,13 +49,11 @@ class Products extends \ShopIZ\Base\Model
         $paginator = new Phalcon\Paginator\Adapter\QueryBuilder(
             array(
                 "builder" => $builder,
-                "limit"=> 10,
-                "page" => $page
+                "limit" => $params['limit'],
+                "page" => $params['page'],
             )
         );
 
-        $page = $paginator->getPaginate();
-
-        return $page;
+        return $paginator->getPaginate();
     }
 }
