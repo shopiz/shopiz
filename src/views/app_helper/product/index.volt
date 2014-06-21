@@ -67,45 +67,24 @@
                 </table>
 
                 <div class="row-fluid">
-                    <div class="span6">
-                        <div class="dataTables_info">共 {{product_list.total_items}} 件商品 当前第 {{product_list.current}}/{{product_list.total_pages}} 页</div>
-                    </div>
-                    <div class="span6">
-                        <style>
-                            .page-select {margin:0 0 0 5px;}
-                        </style>
-                        <select class="form-control page-select select-search input-small pull-right" name="options2">
-                            <option value="all">全部</option>
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select>
+                    <style>
+                        /*.page-select {margin:0 0 0 5px;}*/
+                        /*.pagination select[class*="span"] {margin-top: -12px; margin-left: 5px;}*/
+                        div.dataTables_paginate {float: none;}
+                        .pagination div.dataTables_info {float:left;}
+                        .pagination ul { float: right; }
+                        .pagination select {float:right; margin-left:5px;}
+                    </style>
 
-                        <div class="dataTables_paginate paging_bootstrap pagination">
-                            <ul>
-                                <li class="prev disabled">
-                                    <span>
-                                        ←
-                                        <span class="hidden-480">上一页</span>
-                                    </span>
-                                </li>
-                                <li class="active">
-                                    <span>1</span>
-                                </li>
-                                <li>
-                                    <a href="#">2</a>
-                                </li>
-                                <li class="next">
-                                    <a href="#">
-                                        <span class="hidden-480">下一页</span>
-                                        →
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                    	<script type="text/javascript">
+                    	var pg = new showPages('pg');
+                    	pg.pagesize = {{pagesize}};//{{product_list.page_size}};
+                    	pg.page = {{product_list.current}};
+                    	pg.page_count = {{product_list.total_pages}};
+                    	pg.item_count = {{product_list.total_items}};
+                    	pg.printHtml(256 | 128 | 16 | 64);
+                    	</script>
                     </div>
                 </div>
 

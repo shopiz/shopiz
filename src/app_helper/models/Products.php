@@ -20,6 +20,7 @@ class Products extends \ShopIZ\Base\Model
             'class_id'            => 'class_id',
             'product_name'        => 'product_name',
             'product_price'       => 'product_price',
+            'market_price'        => 'market_price',
             'product_description' => 'product_description',
             'product_tips'        => 'product_tips',
             'product_discount_rate' => 'product_discount_rate',

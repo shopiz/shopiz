@@ -36,7 +36,7 @@
 								<div class="control-group">
 									<label class="control-label">商品名称</label>
 									<div class="controls">
-										<input type="text" name="product_name" placeholder="" class="m-wrap large" />
+										<input type="text" name="product_name" placeholder="" value="{{product_info['product_name']}}" class="m-wrap large" />
 										<span class="help-inline">请输入商品名称</span>
 									</div>
 								</div>
@@ -51,7 +51,7 @@
 								<div class="control-group">
 									<label class="control-label">商品货号</label>
 									<div class="controls">
-										<input type="text" name="product_sn" placeholder="" class="m-wrap medium" />
+										<input type="text" name="product_sn" placeholder="" value="{{product_info['product_sn']}}" class="m-wrap medium" />
 										<span class="help-inline">唯一编号，不能修改</span>
 									</div>
 								</div>
@@ -85,7 +85,7 @@
 								<div class="control-group">
 									<label class="control-label">商品价格</label>
 									<div class="controls">
-										<input type="text" name="shop_price" placeholder="" class="m-wrap medium" />
+										<input type="text" name="product_price" placeholder="" value="{{product_info['product_price']}}" class="m-wrap medium" />
 										<span class="help-inline">请输入商品价格，精确到两位小数</span>
 									</div>
 								</div>
@@ -93,7 +93,7 @@
 								<div class="control-group">
 									<label class="control-label">市场价格</label>
 									<div class="controls">
-										<input type="text" name="market_price" placeholder="" class="m-wrap medium" />
+										<input type="text" name="market_price" value="{{product_info['market_price']}}" placeholder="" class="m-wrap medium" />
 										<span class="help-inline">请输入市场价格，精确到两位小数</span>
 									</div>
 								</div>
@@ -114,7 +114,9 @@
 									<label class="control-label">上架状态</label>
 									<div class="controls">
 										<div class="text-toggle-button">
-											<input name="is_on_sale" type="checkbox" class="toggle" value="1" />
+											<input name="is_on_sale" type="checkbox" class="toggle" value="1" {%if product_info['is_on_sale'] == 1%} checked{%endif%} />
+										}
+										}
 										</div>
 									</div>
 								</div>
