@@ -17,24 +17,35 @@ class Products extends \ShopIZ\Base\Model
             'product_id'          => 'product_id',
             'channel_id'          => 'channel_id',
             'channel_product_id'  => 'channel_product_id',
-            'class_id'            => 'class_id',
+            'category_id'         => 'category_id',
+            'brand_id'            => 'brand_id',
             'product_name'        => 'product_name',
+            'product_sn'          => 'product_sn',
             'product_price'       => 'product_price',
             'market_price'        => 'market_price',
             'product_description' => 'product_description',
             'product_tips'        => 'product_tips',
             'product_discount_rate' => 'product_discount_rate',
             'product_discount'    => 'product_discount',
-            'is_default'    => 'is_default',
-            'is_show'    => 'is_show',
-            'product_rank'    => 'product_rank',
-            'product_attribute'    => 'product_attribute',
-            'product_status'    => 'product_status',
-            'is_other' => 'is_other',
-            'dateline'    => 'dateline',
-            'lasttime'    => 'lasttime',
+            'is_on_sale'          => 'is_on_sale',
+            'is_default'          => 'is_default',
+            'is_show'             => 'is_show',
+            'product_rank'        => 'product_rank',
+            'product_attribute'   => 'product_attribute',
+            'product_status'      => 'product_status',
+            'is_other'            => 'is_other',
+            'dateline'            => 'dateline',
+            'lasttime'            => 'lasttime',
 
         );
+    }
+
+    public function getProductInfo($product_id)
+    {
+        $sql = "SELECT * FROM {$this->tableName} WHERE product_id=:product_id";
+        $productInfo = $this->db->fetchOne($sql, PDO::FETCH_ASSOC, array('product_id' => $product_id));
+
+        return $productInfo;
     }
 
     public function getProductList($params = array())
