@@ -29,13 +29,43 @@ class Model extends \Phalcon\Mvc\Model
         $this->modelsManager = $this->di->get('modelsManager');
     }
 
-    static public function inst()
+    public function insert($colums)
     {
-        //
-        if (!isset(self::$_inst[static::$modelName])) {
-            self::$_inst[static::$modelName] = new static::$modelName();
+        $flag = $this->db->insert($this->tableName, array_values($colums), array_keys($colums));
+
+        if ($flag) {
+            $insertId = $this->db->lastInsertId();
+        } else {
+            $insertId = false;
         }
 
-        return self::$_inst[static::$modelName];
+        return $insertId;
+
+    }
+
+    // public function update($colums, $whereCondition = null, $dataTypes = null)
+    // {
+    //     $flag = $this->db->update($this->tableName, array_keys($colums), array_values($colums), $whereCondition, $dataTypes);
+
+    //     return $flag;
+
+    // }
+
+    public function delete($whereCondition = null, $placeholders = null, $dataTypes = null)
+    {
+        $flag = $this->db->delete($this->tableName, $whereCondition, $placeholders, $dataTypes);
+
+        return $flag;
+
+    }
+
+    static public function inst()
+    {
+        $className = get_called_class();
+        if (!isset(self::$_inst[$className])) {
+            self::$_inst[$className] = new $className();
+        }
+
+        return self::$_inst[$className];
     }
 }
