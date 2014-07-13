@@ -1,5 +1,7 @@
 <?php
 
+
+!isset($_SERVER['ENVIRON']) && $_SERVER['ENVIRON'] = 'production';
 return new Phalcon\Config(
     array_replace_recursive(
         array(
@@ -33,7 +35,7 @@ return new Phalcon\Config(
                 'compileAlways'    => false,
             ),
         ),
-        include __DIR__ . "/environ/" . ENVIRON . ".php",
+        include __DIR__ . "/environ/" . $_SERVER['ENVIRON'] . ".php",
         include LIBRARY_PATH . "/config/common.php"
     )
 );

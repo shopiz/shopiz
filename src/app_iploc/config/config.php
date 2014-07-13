@@ -1,5 +1,7 @@
 <?php
 
+
+!isset($_SERVER['ENVIRON']) && $_SERVER['ENVIRON'] = 'production';
 return new Phalcon\Config(
     array_replace_recursive(
         array(
