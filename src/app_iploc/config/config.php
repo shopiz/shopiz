@@ -33,7 +33,7 @@ return new Phalcon\Config(
                 'compileAlways'    => false,
             ),
         ),
-        include __DIR__ . "/environ/" . ENVIRON . ".php",
+        include __DIR__ . "/environ/" . $_SERVER['ENVIRON'] . ".php",
         include LIBRARY_PATH . "/config/common.php"
     )
 );
