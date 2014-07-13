@@ -9,7 +9,7 @@ try {
      * 环境
      * 可选值：production, develop, test
      */
-	define('ENVIRON', 'develop');
+	// define('ENVIRON', 'develop');
 
     define("DS", DIRECTORY_SEPARATOR);
 
@@ -24,17 +24,17 @@ try {
 	/**
 	 * Read the configuration
 	 */
-	$config = include __DIR__ . "/../config/config.php";
+	$config = include APP_PATH . "config/config.php";
 
 	/**
 	 * Read auto-loader
 	 */
-	include __DIR__ . "/../config/loader.php";
+	include APP_PATH . "config/loader.php";
 
 	/**
 	 * Read services
 	 */
-	include __DIR__ . "/../config/services.php";
+	include APP_PATH . "config/services.php";
 
 	$di->set('config', $config);
 
