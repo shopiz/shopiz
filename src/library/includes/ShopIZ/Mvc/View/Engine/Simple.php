@@ -15,11 +15,12 @@ class Simple extends \Phalcon\Mvc\View\Engine implements \Phalcon\Mvc\View\Engin
 
     protected $_params;
 
-    public function __construct($view, $di = NULL)
+    public function __construct(\Phalcon\Mvc\ViewBaseInterface $view,
+                                \Phalcon\DiInterface $dependencyInjector = NULL)
     {
         $this->_simple = new \ShopIZ\Mvc\View\Adapter\Simple();
 
-        parent::__construct($view, $di);
+        parent::__construct($view, $dependencyInjector);
     }
 
     public function render($path, $params, $mustClean = NULL)
